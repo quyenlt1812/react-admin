@@ -30,7 +30,10 @@ export interface UIState {
 // See https://material-ui.com/customization/breakpoints/#breakpoints
 const isDesktop = (): boolean =>
     // (min-width: 960px) => theme.breakpoints.up('md')
-    window && window.matchMedia && typeof window.matchMedia === 'function'
+    window &&
+    typeof window !== 'undefined' &&
+    window.matchMedia &&
+    typeof window.matchMedia === 'function'
         ? window.matchMedia('(min-width:960px)').matches
         : false;
 
